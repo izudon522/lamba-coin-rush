@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamba Coin Rush</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #111827;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #facc15;
+      margin: 20px 0 8px;
+    }
+
+    .subtitle {
+      color: #d1d5db;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: #1f2937;
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .coins {
+      font-size: 42px;
+      font-weight: bold;
+      color: #facc15;
+      margin: 15px 0;
+    }
+
+    .tap-button {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: none;
+      background: #facc15;
+      color: #111827;
+      font-size: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 8px 0 #ca8a04;
+      transition: 0.1s;
+    }
+
+    .tap-button:active {
+      transform: translateY(6px);
+      box-shadow: 0 2px 0 #ca8a04;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    button.action {
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #374151;
+      color: white;
+    }
+
+    button.action:hover {
+      background: #4b5563;
+    }
+
+    .message {
+      margin-top: 15px;
+      color: #86efac;
+      min-height: 20px;
+    }
+
+    footer {
+      color: #9ca3af;
+      font-size: 13px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>🪙 Lamba Coin Rush</h1>
+    <p class="subtitle">Tap, collect and enjoy the rush!</p>
+
+    <div class="card">
+      <p>Your Virtual Coins</p>
+
+      <div class="coins" id="coinCount">0</div>
+
+      <button class="tap-button" onclick="tapCoin()">
+        TAP
+      </button>
+
+      <div class="message" id="message"></div>
+    </div>
+
+    <div class="card">
+
+      <h2>Account</h2>
+
+      <div class="buttons">
+        <button class="action" onclick="registerUser()">
+          Register
+        </button>
+
+        <button class="action" onclick="depositInfo()">
+          Deposit
+        </button>
+
+        <button class="action" onclick="withdrawInfo()">
+          Withdraw
+        </button>
+      </div>
+
+      <div class="message" id="accountMessage"></div>
+
+    </div>
+
+    <footer>
+      Lamba Coin Rush © 2026
+    </footer>
+
+  </div>
+
+  <script>
+    let coins = Number(localStorage.getItem("lambaCoins")) || 0;
+
+    function updateCoins() {
+      document.getElementById("coinCount").textContent = coins;
+      localStorage.setItem("lambaCoins", coins);
+    }
+
+    function tapCoin() {
+      coins++;
+      updateCoins();
+
+      document.getElementById("message").textContent =
+        "+1 virtual coin collected!";
+    }
+
+    function registerUser() {
+      document.getElementById("accountMessage").textContent =
+        "Registration will be added in the next step.";
+    }
+
+    function depositInfo() {
+      document.getElementById("accountMessage").textContent =
+        "Secure deposit integration will be connected later.";
+    }
+
+    function withdrawInfo() {
+      document.getElementById("accountMessage").textContent =
+        "Withdrawal system will be connected after the account and payment setup.";
+    }
+
+    updateCoins();
+  </script>
+
+</body>
+</html>
